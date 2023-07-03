@@ -1,40 +1,33 @@
-#include <stdio.h> 
+#include <stdio.h>
 
-//별 찍기 1: N 입력받고 (N*2-1)줄만큼 마름모 꼴로 출력
+//별 찍기 2: 별 찍기 1에서 오른쪽에 별을 0 1 2 3 ... n-2 n-1 n-2 . . . 0개씩 추가
 int main() {
-	int N, i, k, j, t=1;
-	scanf("%d", &N);
-	//줄 찍기
-	for (i=1;i<=N*2-1;i++) {
+	int n, i, k, j, t = 1;
+	scanf("%d", &n);
+	for (i = 1; i <= n * 2 - 1; i++) {
 
-		//마름모 윗 덩어리 (제일 긴 줄 포함)
-		if (i <= N) {
-			//왼쪽 공백, N-1부터 0까지 출력되게 하기
-			int a = N - i;
+		if (i <= n) {
+			int a = n - i;
 			while (a != 0) {
 				a--;
 				printf(" ");
 			}
-			//별, 1+2(i-1)개 씩 증가
-			for (k = 0; k < (1 + 2 * (i - 1)); k++) {
+			for (k = 0; k < (1 + 2 * (i - 1)+(i-1)); k++) { //위 코드에서 + (i-1) 만 추가함 (여기서 i-1이란,, 0부터 시작해서 1씩 커지는 숫자, 0 1 2 3 . . . n-1)
 				printf("*");
 			}
-		printf("\n");
+			printf("\n");
 		}
-		//마름모 밑 덩어리
-		else if(i > N) { //i는 N+1로 시작해서 N+2, N+3... 상태, N은 N이고  1+2(N-j) i=6 n=5
-			//왼쪽 공백
-			int c = i - N;
+		else if (i > n) {
+			int c = i - n;
 			while (c != 0) {
 				c--;
 				printf(" ");
 			}
-			//별
-			for (j = 1;j <= (N*2-(1+2*t));j++) {
+			for (j = 1; j <= (n * 2 - (1 + 2 * t) + (n-t-1)); j++) { //위 코드에서 + (n-t-1) 만 추가함 (이게 n-2랑 똑같은 거, n-2 n-3 . . . 0)
 				printf("*");
 			}
-		t = t + 1;
-		printf("\n");
+			t = t + 1;
+			printf("\n");
 		}
 	}
 	return 0;
