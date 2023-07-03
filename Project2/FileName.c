@@ -1,14 +1,15 @@
 #include <stdio.h> 
 
-//03번: 1부터 n까지의 합
+//05번: 4바이트당 long 하나씩. n바이트를 long x n int로 출력
 
 int main() {
-	int n, i, sum=0;
+	int n, i;
 	scanf("%d", &n);
-
-	for (i=1;i<=n;i++) {
-		sum += i;
+	int num = n / 4;
+	for (i=0;i<num;i++) {
+		printf("long ");
 	}
-	printf("%d", sum);
+	printf("int");
 	return 0;
 }
+
