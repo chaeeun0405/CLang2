@@ -1,15 +1,13 @@
 #include <stdio.h> 
 
-//05번: 4바이트당 long 하나씩. n바이트를 long x n int로 출력
-
+//06번: A+B를 T줄 만큼 입력 및 출력
 int main() {
-	int n, i;
-	scanf("%d", &n);
-	int num = n / 4;
-	for (i=0;i<num;i++) {
-		printf("long ");
+	int T, i, A, B;
+	scanf("%d", &T);
+	for (i=0;i<T;i++) {
+		scanf("%d %d", &A , &B);
+		printf("%d\n", A + B);
 	}
-	printf("int");
 	return 0;
 }
 
