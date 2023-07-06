@@ -1,20 +1,27 @@
 #include <stdio.h>
 
-//번호 안 불린 사람 찾기
-int main() {
-	int n;
-	int stu[30] = { 0 };
+//서로 다른 나머지의 개수 찾기
 
-	//과제 낸 번호
-	for (int i = 0; i < 28; i++) {
+int main() {
+	int n, sum = 0;
+	int N[10];
+
+	for (int i = 0; i < 10; i++) {
 		scanf("%d", &n);
-		stu[n - 1] = n;
+		N[i] = (n % 42); //나머지를 배열에 할당
 	}
 
-	for (int i = 0; i < 30; i++) {
-		if (stu[i] == 0) {
-			printf("%d\n", i + 1);
+	for (int i = 0; i < 10; i++) {
+		int count = 0;
+		for (int j = i + 1; j < 10; j++) {
+			if (N[i] == N[j]) { // 겹치는 숫자가 있다 = 서로 다른 나머지의 개수에 미포함
+				count += 1;
+			}
+		}
+		if (count == 0) { // = 겹치는 숫자가 없다 = 서로 다른 나머지 개수(=sum+ +1
+			sum += 1;
 		}
 	}
+	printf("%d", sum);
+
 	return 0;
-}
