@@ -1,31 +1,23 @@
 #include <stdio.h>
 
-//최대최소
+//최댓값과 그거의 인덱스 출력
 int main() {
-	int N;
-	scanf("%d", &N);
-	int num[1000000];
-
-	for (int i = 0; i < N; i++) {
-		scanf("%d", &num[i]);
+	int n[9];
+	for (int i = 0; i < 9; i++) {
+		scanf("%d", &n[i]);
 	}
 
-	int min = num[0];
-	int max = num[0];
+	int max = n[0];
+	int num = 1;
 
-	for (int i = 0; i < N; i++) {
-		if (num[i] <= min) {
-			min = num[i];
+	for (int i = 0; i < 9; i++) {
+		if (n[i] > max) {
+			max = n[i];
+			num = i + 1;
 		}
 	}
 
-	for (int i = 0; i < N; i++) {
-		if (num[i] >= max) {
-			max = num[i];
-		}
-	}
-
-	printf("%d %d", min, max);
+	printf("%d\n%d", max, num);
 
 	return 0;
 }
