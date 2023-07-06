@@ -1,24 +1,19 @@
 #include <stdio.h>
 
-
-// 정수의 개수 찾기
+//수열 A에서 X보다 작은 수를 모두 출력
 int main() {
-	int N, V, sum=0;
-	int num[101];
-	scanf("%d", &N);
+	int N, X; 수열 A에서 X보다 작은 수를 모두 출력
+	int A[10000];
+	scanf("%d %d", &N, &X);
 	for (int i = 0; i < N; i++) {
-		scanf("%d", &num[i]);
+		scanf("%d", &A[i]);
 	}
 
-	scanf("%d", &V);
-
 	for (int i = 0; i < N; i++) {
-		if (num[i] == V) {
-			sum += 1;
+		if (A[i] < X) {
+			printf("%d ", A[i]);
 		}
 	}
-
-	printf("%d", sum);
 
 	return 0;
 }
