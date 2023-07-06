@@ -1,23 +1,26 @@
 #include <stdio.h>
 
 // N개의 바구니. 
-// M번 공넣기
-// i번 바구니부터 j번 바구니까지 k번이 적힌 공을 넣음
+// 바구니 번호와 같은 숫자의 공
+// M번 공 바꿈
+// 바구니 2개 골라서 서로 바꿈
 
 int main() {
-	int N, M, i, j, k;
-	int ball[101] = { 0 };
+	int N, M, i, j;
+	int ball[100];
 	scanf("%d %d", &N, &M);
-
-	//M번 공넣음 
-	for (int a = 0; a < M; a++) {
-		scanf("%d %d %d", &i, &j, &k);
-		for (int c = i; c <= j; c++) {
-			ball[c-1] = k; //바구니는 1부터 시작인데 인덱스는 0부터 시작이니까
-		}
+	
+	for (int a = 0; a < N; a++) {          //바구니에 자기 숫자 공 넣어주기
+		ball[a] = a + 1;      //공은 1번부터
 	}
 
-	//바구니 N개 출력
+	for (int a = 0; a < M ; a++) {          //공 바꾸기
+		scanf("%d %d", &i, &j);
+		int A = ball[i-1];
+		int B = ball[j-1];
+		ball[i-1] = B;
+		ball[j-1] = A;
+	}
 	for (int a = 0; a < N; a++) {
 		printf("%d ", ball[a]);
 	}
