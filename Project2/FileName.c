@@ -1,23 +1,26 @@
 #include <stdio.h>
 
-//최댓값과 그거의 인덱스 출력
+// N개의 바구니. 
+// M번 공넣기
+// i번 바구니부터 j번 바구니까지 k번이 적힌 공을 넣음
+
 int main() {
-	int n[9];
-	for (int i = 0; i < 9; i++) {
-		scanf("%d", &n[i]);
-	}
+	int N, M, i, j, k;
+	int ball[101] = { 0 };
+	scanf("%d %d", &N, &M);
 
-	int max = n[0];
-	int num = 1;
-
-	for (int i = 0; i < 9; i++) {
-		if (n[i] > max) {
-			max = n[i];
-			num = i + 1;
+	//M번 공넣음 
+	for (int a = 0; a < M; a++) {
+		scanf("%d %d %d", &i, &j, &k);
+		for (int c = i; c <= j; c++) {
+			ball[c-1] = k; //바구니는 1부터 시작인데 인덱스는 0부터 시작이니까
 		}
 	}
 
-	printf("%d\n%d", max, num);
+	//바구니 N개 출력
+	for (int a = 0; a < N; a++) {
+		printf("%d ", ball[a]);
+	}
 
 	return 0;
 }
