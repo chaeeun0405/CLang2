@@ -1,27 +1,35 @@
 #include <stdio.h>
 
-//서로 다른 나머지의 개수 찾기
-
+//점수 조작
+//점수 중 최댓값 M
+//모든 점수를 점수/M*100 함
+//시험 본 과목 개수 N
+ 
 int main() {
-	int n, sum = 0;
-	int N[10];
+	float N, sum=0.0;
+	scanf("%f", &N);
+	float s[1000];
 
-	for (int i = 0; i < 10; i++) {
-		scanf("%d", &n);
-		N[i] = (n % 42); //나머지를 배열에 할당
+	for (int i = 0; i < N; i++) {
+		scanf("%f", &s[i]);
 	}
 
-	for (int i = 0; i < 10; i++) {
-		int count = 0;
-		for (int j = i + 1; j < 10; j++) {
-			if (N[i] == N[j]) { // 겹치는 숫자가 있다 = 서로 다른 나머지의 개수에 미포함
-				count += 1;
-			}
-		}
-		if (count == 0) { // = 겹치는 숫자가 없다 = 서로 다른 나머지 개수(=sum+ +1
-			sum += 1;
+	float max = s[0];
+
+	for (int i = 0; i < N; i++) {
+		if (s[i] > max) {
+			max = s[i];
 		}
 	}
-	printf("%d", sum);
 
-	return 0;
+	for (int i = 0; i < N; i++) {
+			s[i] = (float)s[i] / (float)max * 100;
+	
+	}
+
+	for (int i = 0; i < N; i++) {
+		sum += s[i];
+	}
+
+	printf("%.14f", (float)sum / (float)N);
+}
