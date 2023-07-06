@@ -1,19 +1,31 @@
 #include <stdio.h>
 
-//수열 A에서 X보다 작은 수를 모두 출력
+//최대최소
 int main() {
-	int N, X; //수열 A에서 X보다 작은 수를 모두 출력
-	int A[10000];
-	scanf("%d %d", &N, &X);
+	int N;
+	scanf("%d", &N);
+	int num[1000000];
+
 	for (int i = 0; i < N; i++) {
-		scanf("%d", &A[i]);
+		scanf("%d", &num[i]);
+	}
+
+	int min = num[0];
+	int max = num[0];
+
+	for (int i = 0; i < N; i++) {
+		if (num[i] <= min) {
+			min = num[i];
+		}
 	}
 
 	for (int i = 0; i < N; i++) {
-		if (A[i] < X) {
-			printf("%d ", A[i]);
+		if (num[i] >= max) {
+			max = num[i];
 		}
 	}
+
+	printf("%d %d", min, max);
 
 	return 0;
 }
