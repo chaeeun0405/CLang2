@@ -1,10 +1,15 @@
 #include <stdio.h>
 
-int main() {
-	long M[3] = { 10, 20, 30 };
-	long K;
-	K = *M + M[1] + *(M + 1); //* > 참조값
-	K += *&M[2] + *M + 1;
-	printf("%d\n %d", K, M[3]);
 
+int main() {
+	char M[] = { 'A' , 'B' , 'C', 'D' };
+	int N = sizeof(M);
+	printf("%d", N);
+	int a;
+	*&M[0] += 32; //아스키코드 참고 
+	*(M + 1) += 1;
+	++*(M + 2);
+	*(M + 3) += 2;
+	for (a = 0; a < N; a++)
+		putchar(*(M + a));
 }
