@@ -1,15 +1,16 @@
 #include <stdio.h>
 
-
 int main() {
-	char M[] = { 'A' , 'B' , 'C', 'D' };
-	int N = sizeof(M);
-	printf("%d", N);
-	int a;
-	*&M[0] += 32; //아스키코드 참고 
-	*(M + 1) += 1;
-	++*(M + 2);
-	*(M + 3) += 2;
-	for (a = 0; a < N; a++)
-		putchar(*(M + a));
+	short M[2][2] = { {10, 20}, {30, 40} }; //short : 2byte
+	short a;
+	a = M[0][0] + M[0][1] + M[1][0] + M[1][1]; //100
+	a += (*&M[1][0] + *M[0] + *(M[1] + 1)); //180
+	a -= **M; //170
+	//printf("%d\n", *M);
+	//printf("%d\n", *(M + 1));
+	//printf("%d\n", *(M + 1)+1);
+	//printf("%d\n", *(*(M + 1) + 1));
+	a += *(*(M + 1) + 1); //210
+	printf("%d\n", a);
+
 }
