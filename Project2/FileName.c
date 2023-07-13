@@ -1,16 +1,15 @@
 #include <stdio.h>
-
-//2. char Name[4] = { 'A', 'B', 'C',NULL };
-//char Chocolate[11] = { ' ', 'C', 'H', 'O', 'C', 'O', 'L', 'A', 'T', 'E', NULL };
-//배열이 있다. ABC CHOCOLATE이 출력되도록 NAME만 사용하여 출력하라
-//두 배열의 주소가 36씩 차이 남
+#include<string.h>
 
 int main() {
-
-	char Name[4] = { 'A', 'B', 'C', NULL };
-	char Chocolate[11] = { ' ', 'C', 'H', 'O', 'C', 'O', 'L', 'A', 'T', 'E', NULL };
-	char* pN = Name;
-	printf("%s", Name);
-	printf("%s", Name+36); //주소에 36을 더함, 36칸 앞으로 감.
-
+	char M[] = { 'P', 'A', 'E', NULL };
+	char* ap;
+	int a = 0;
+	ap = M + strlen(M) - 1; // ap = M + (3-1) = M + 2
+	printf("%c\n", *ap--); // M+2의 참조값 출력 & 후위연산 ap = M + 1
+	*--ap = 'T'; //전위연산, ap = M , M의 참조값의 자리 P > T
+	printf("%s\n", ap); //문자열을 출력하는 %s, TAE 출력.
+	printf("%c\n", *++ap); // M+1의 참조값 A
+	printf("%c\n", ap[a++]); //ap[0] 출력 (=A), 후위연산 a = 1
+	printf("%c\n", ap[--a]); //전위연산, a = 0 , ap[0] 출력
 }
