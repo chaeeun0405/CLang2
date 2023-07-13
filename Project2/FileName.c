@@ -1,21 +1,16 @@
 #include <stdio.h>
 
+//2. char Name[4] = { 'A', 'B', 'C',NULL };
+//char Chocolate[11] = { ' ', 'C', 'H', 'O', 'C', 'O', 'L', 'A', 'T', 'E', NULL };
+//배열이 있다. ABC CHOCOLATE이 출력되도록 NAME만 사용하여 출력하라
+//두 배열의 주소가 36씩 차이 남
+
 int main() {
 
-	short M[] = { 10, 20, 30, 40 }; //일차원 배열~
-	short* ap; 
-	short c;
-	ap = M; 
-	c = *ap++; // c = 10 , ap = M+1
+	char Name[4] = { 'A', 'B', 'C', NULL };
+	char Chocolate[11] = { ' ', 'C', 'H', 'O', 'C', 'O', 'L', 'A', 'T', 'E', NULL };
+	char* pN = Name;
+	printf("%s", Name);
+	printf("%s", Name+36); //주소에 36을 더함, 36칸 앞으로 감.
 
-	////전위연산(++--~~): 전위연산 후 문장실행 
-	////후위연산(~~++--): 문장실행 후 후위연산 실행
-
-	c += *(ap + 1); //c = 10 + 30 = 40
-	c += *++ap; //++ 먼저 해서 M+1-> M+2, (ap = M+2) c = 40 + 30 = 70
-	printf("%d %d\n", c, *ap); //70, 30
-
-	c += ap[1]--; // c = 70 + 40, 후위연산으로 ap[1]의 값을 - 1 해줌 (40 > 39)
-	c += ap[1]; // c = 110 + 39 = 149
-	printf("%d %d\n", c, ap[1]); //149, 39
 }
