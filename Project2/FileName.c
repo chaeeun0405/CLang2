@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include<string.h>
 int main() {
     char M[] = "ABC";
     char* ap = "ABC";
