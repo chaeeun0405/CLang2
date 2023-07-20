@@ -1,18 +1,13 @@
 #include <stdio.h>
 #include<conio.h>
 
-int retvalue() {
-    int a, b;
-    a = 2, b = 3;
-    return a + b;
-}
+int IsUpper(char m) { return (m >= 65 && m <= 90 ? 1 : 0); } // m이 60 이상이고 90 이하이면 1 반환 아니면 0 반환
+int IsLower(char m) { return (m >= 97 && m <= 122 ? 1 : 0); } // m이 97 이상이고 122 이하이면 1 반환 아니면 0 반환
+int IsAlpha(char m) { return (IsLower(m) || IsUpper(m) ? 1 : 0); } // lsL 또는 lsU이면 1 반환 아니면 0 반환
 
-int main() {
-    printf("결과 = %d\n", retvalue()); //re 함수의 리턴값을 출력, 저렇게 해도 5가 출력됨
-}
-
-//이렇게도 가능
-//int main() {
-//    a = retvalue(); //5
-//    printf("결과 = %d\n", a);
-//}
+int main()
+{
+    printf("%d\n", IsUpper('A')); //1
+    printf("%d\n", IsLower('A')); //0
+    printf("%d\n", IsAlpha('A')); //1
+} 
